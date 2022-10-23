@@ -1,0 +1,46 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Payment System card
+  description: TODO
+  contact:
+    name: Three Dots Labs
+    url: https://github.com/rifat-simoom
+servers:
+  - url: https://{hostname}/api
+    variables:
+      hostname:
+        default: localhost
+paths:
+
+  /card/info:
+    get:
+      operationId: getCardInfo
+      responses:
+        '200':
+          description: todo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+
+components:
+  schemas:
+    Card:
+      type: object
+      required:
+        - card_no
+      properties:
+        card_no:
+          type: string
+
+    Error:
+      type: object
+      required:
+        - slug
+        - message
+      properties:
+        slug:
+          type: string
+        message:
+          type: string
